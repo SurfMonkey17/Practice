@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int points;
-    
-    
+    public GameObject cube;
+
+    private int _nextColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,32 +15,46 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            points = 50; 
+            _nextColor = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            points = 100;
+            _nextColor = 1;
         }
-       else if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            points = 0;
+            _nextColor = 2;
         }
-
-      
-       switch(points)
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            case 50:
-                Debug.Log("Points are 50!");
+            _nextColor = 3;
+        }
+       
+       switch(_nextColor) {
+            //key 1 = blue
+            case 0:
+                cube.GetComponent<Renderer>().material.color = Color.blue;
                 break;
 
-            case 100:
-                Debug.Log("Points are 100!");
+            //key 2 = red
+            case 1:
+                cube.GetComponent<Renderer>().material.color = Color.red;
+                break;
+
+            //key 3 = green
+            case 2:
+                cube.GetComponent<Renderer>().material.color = Color.green;
+                break;
+
+            //key 4 = black:
+            case 3:
+                cube.GetComponent<Renderer>().material.color = Color.black;
                 break;
 
             default:
-                Debug.Log("You need 50 or 100 points to receive a message");
+                Debug.Log("Invalid selection");
                 break;
         }
     }

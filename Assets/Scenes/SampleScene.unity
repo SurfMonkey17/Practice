@@ -411,4 +411,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a5b969ccbcd544a910cae5f7eac88a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 1
+  cube: {fileID: 1277823121}
